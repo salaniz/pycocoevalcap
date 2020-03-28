@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # This script downloads the Stanford CoreNLP models.
 import os
+import platform
 from urllib.request import urlretrieve
 from zipfile import ZipFile
 
@@ -28,6 +29,9 @@ def get_stanford_models():
         print()
         print('Extracting {} ...'.format(JAR))
         file_name = os.path.join(CORENLP, JAR)
+        _platform = platform.system()
+        if _platform == "Windows":
+            file_name = file_name.replace('\\',"/")
         target_name = os.path.join(SPICEDIR, SPICELIB, JAR)
         for filef in ['{}.jar', '{}-models.jar']:
             extract_file = filef.format(file_name)
