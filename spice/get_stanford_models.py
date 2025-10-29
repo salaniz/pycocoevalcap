@@ -23,7 +23,7 @@ def get_stanford_models():
     # Only download file if file does not yet exist. Else: do nothing
     if not os.path.exists(jar_name):
         print('Downloading {} for SPICE ...'.format(JAR))
-        url = 'http://nlp.stanford.edu/software/{}.zip'.format(CORENLP)
+        url = 'https://nlp.stanford.edu/software/{}.zip'.format(CORENLP)
         zip_file, headers = urlretrieve(url, reporthook=print_progress)
         print()
         print('Extracting {} ...'.format(JAR))
